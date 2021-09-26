@@ -1,4 +1,4 @@
-Country;Happiness_Rank;Happiness_Score;Economy;Family;Life_Expectancy;Freedom;Government_Corruption;Generosity;Year;
+﻿Country;Happiness_Rank;Happiness_Score;Economy;Family;Life_Expectancy;Freedom;Government_Corruption;Generosity;Year;
 Switzerland;1;7.587;139.651;134.951;0.94143;0.66557;0.41978;0.29678;2015;
 Iceland;2;7.561;130.232;140.223;0.94784;0.62877;0.14145;3,029861111;2015;
 Denmark;3;7.527;132.548;136.058;0.87464;0.64938;0.48357;0.34139;2015;
