@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "World Happiness Report (2015-2019)",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/js/worldmap.geo.json",
+    "format": {"type": "topojson", "feature": "world.geo"}
+  },
+
+  "params": [
+    {
+      "name": "Year",
+      "bind": {
+        "input": "select",
+        "options": [
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019"
+        ],
+        "labels": [
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019"
+        ]
+      }
+    }
+  ],
+       
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/data/world-happiness-report.csv"
+        },
+        "key": "Country",
+        "fields": ["Score"]
+      }
+    },
+    {"filter": "Year == null || datum.Year == Year"}
+  ],
+  "projection": {"type": "equirectangular"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Score",
+      "type": "quantitative",
+      "scale": {"type": "linear"},
+      "title": "Happiness Score"
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Country"},
+      {"field": "Score", "type": "quantitative","title": "Happiness Score"}
+    ]
+  }
+  
+}
