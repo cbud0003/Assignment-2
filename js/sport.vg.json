@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Stock prices of 5 Tech Companies over Time.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/data/Sport.csv"
+    },
+    "mark": "line",
+    "encoding": {
+      "x": {"field": "Year", "type": "ordinal"},
+      "y": {"field": "Medal", "type": "quantitative"},
+      "color": {
+        "field": "Sport",
+        "type": "nominal",
+        "scale": {
+          "range": [
+            "#CBBBA8",
+            "#B1937E",
+            "#986754",
+            "#7F362A",
+            "#650000",
+            "#563903",
+            "#334705",
+            "#083906",
+            "#062C1E",
+            "#061920",
+            "#050615"
+          ]
+        }
+      },
+      "tooltip": [
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Medal", "type": "quantitative", "title": "Medal"}
+      ]
+    },
+    "config": {}
+  }

@@ -1,0 +1,75 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Male vs Female Olympic Participation throughout the years.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/data/Gender.csv",
+      "format": {
+        "type": "csv",
+        "parse": {"Year": "number", "Gender_Count": "number"}
+      }
+    },
+    "spacing": 0,
+    "hconcat": [
+      {
+        "transform": [{"filter": {"field": "Gender", "equal": "Women"}}],
+        "title": "Women",
+        "mark": "bar",
+        "encoding": {
+          "y": {"field": "Year", "axis": null, "sort": "descending"},
+          "x": {
+            "aggregate": "sum",
+            "field": "Gender_Count",
+            "title": "Participation",
+            "axis": {"format": "s"},
+            "sort": "descending"
+          },
+          "color": {
+            "field": "Gender",
+            "scale": {"range": ["#902923", "#A6624F"]},
+            "legend": null
+          },
+          "tooltip": [
+            {"field": "Gender_Count", "type": "quantitative", "title": "Total"}
+          ]
+        }
+      },
+      {
+        "width": 20,
+        "view": {"stroke": null},
+        "mark": {"type": "text", "align": "center"},
+        "encoding": {
+          "y": {
+            "field": "Year",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "descending"
+          },
+          "text": {"field": "Year", "type": "quantitative"}
+        }
+      },
+      {
+        "transform": [{"filter": {"field": "Gender", "equal": "Men"}}],
+        "title": "Men",
+        "mark": "bar",
+        "encoding": {
+          "y": {
+            "field": "Year",
+            "title": null,
+            "axis": null,
+            "sort": "descending"
+          },
+          "x": {
+            "aggregate": "sum",
+            "field": "Gender_Count",
+            "title": "Participation",
+            "axis": {"format": "s"}
+          },
+          "color": {"field": "Gender", "legend": null},
+          "tooltip": [
+            {"field": "Gender_Count", "type": "quantitative", "title": "Total"}
+          ]
+        }
+      }
+    ],
+    "config": {"view": {"stroke": null}, "axis": {"grid": false}}
+  }

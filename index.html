@@ -13,12 +13,30 @@
 </head>
 <body>
   
-<div id="choropleth_map"></div>
+<div id="choropleth_map"></div> <br>
+<div id="gender"></div> <br>
+<div id="athlete"></div> <br>
+<div id="sport"></div>
 
 <script type="text/javascript">
 
   var spec2 = "js/choropleth_map.vg.json";
   vegaEmbed('#choropleth_map', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec3 = "js/gender.vg.json";
+  vegaEmbed('#gender', spec3).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec4 = "js/athlete.vg.json";
+  vegaEmbed('#athlete', spec4).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec5 = "js/sport.vg.json";
+  vegaEmbed('#sport', spec5).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
