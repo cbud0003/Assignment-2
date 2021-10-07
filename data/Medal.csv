@@ -1,13 +1,13 @@
 Country,Count
-United States,"4,585"
-Soviet Union,"2,049"
-United Kingdom,"1,720"
-France,"1,396"
-Germany,"1,305"
-Italy,"1,296"
-Australia,"1,189"
-Hungary,"1,079"
-Sweden,"1,044"
+United States,4585
+Soviet Union,2049
+United Kingdom,1720
+France,1396
+Germany,1305
+Italy,1296
+Australia,1189
+Hungary,1079
+Sweden,1044
 Netherlands,851
 German Democratic Republic,825
 China,807
@@ -16,7 +16,7 @@ Russia,768
 Canada,649
 Romania,640
 Norway,554
-"Korea, South",529
+South Korea,529
 Poland,511
 Denmark,507
 Finland,456
@@ -43,7 +43,7 @@ Turkey,86
 Nigeria,84
 Uruguay,76
 Iran,61
-"Korea, North",58
+North Korea,58
 Czech Republic,56
 Lithuania,55
 Kazakhstan,49
