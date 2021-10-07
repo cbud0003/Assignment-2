@@ -1,62 +1,38 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "World Happiness Report (2015-2019)",
+  "title": "Olympics Medals (1896-2014)",
   "width": 800,
   "height": 600,
   "data": {
     "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/js/worldmap.geo.json",
     "format": {"type": "topojson", "feature": "world.geo"}
   },
-
-  "params": [
-    {
-      "name": "Year",
-      "bind": {
-        "input": "select",
-        "options": [
-          "2015",
-          "2016",
-          "2017",
-          "2018",
-          "2019"
-        ],
-        "labels": [
-          "2015",
-          "2016",
-          "2017",
-          "2018",
-          "2019"
-        ]
-      }
-    }
-  ],
-       
   "transform": [
     {
       "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/data/world-happiness-report.csv"
+          "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/data/Medal.csv"
         },
         "key": "Country",
-        "fields": ["Score"]
+        "fields": ["Count"]
       }
-    },
-    {"filter": "Year == null || datum.Year == Year"}
+    }
   ],
   "projection": {"type": "equirectangular"},
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Score",
+      "field": "Count",
       "type": "quantitative",
-      "scale": {"type": "linear"},
-      "title": "Happiness Score"
+      "scale": {"type": "linear",
+      "domain": [100,500,1000,4500],
+      "range": ["#DDBBCE","#902923","#701426","#4C0928"]},
+      "title": "Medals"
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "Country"},
-      {"field": "Score", "type": "quantitative","title": "Happiness Score"}
+      {"field": "Count", "type": "quantitative", "title": "Medals"}
     ]
   }
-  
 }
