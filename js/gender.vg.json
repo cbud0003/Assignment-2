@@ -13,6 +13,7 @@
       {
         "transform": [{"filter": {"field": "Gender", "equal": "Women"}}],
         "title": "Women",
+        "height": 300,
         "mark": "bar",
         "encoding": {
           "y": {"field": "Year", "axis": null, "sort": "descending"},
@@ -35,6 +36,7 @@
       },
       {
         "width": 20,
+        "height": 300,
         "view": {"stroke": null},
         "mark": {"type": "text", "align": "center"},
         "encoding": {
@@ -50,6 +52,7 @@
       {
         "transform": [{"filter": {"field": "Gender", "equal": "Men"}}],
         "title": "Men",
+        "height": 300,
         "mark": "bar",
         "encoding": {
           "y": {

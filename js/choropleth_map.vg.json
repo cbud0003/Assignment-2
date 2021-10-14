@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Olympics Medals (1896-2014)",
-  "width": 800,
-  "height": 600,
+  "width": 500,
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/js/worldmap.geo.json",
     "format": {

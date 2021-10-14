@@ -1,45 +1,188 @@
 <!DOCTYPE html>
 <html>
-<head>
+<title>Olympics - Data Visualization</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Noto+Sans&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+   <!-- Import vega-embed -->
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+<style>
+    h4{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    }
+    h3, p{
+    font-family: Montserrat;
+    font-weight: light;
+    font-size: 15px;
+    }
+    h2{
+    font-family: Montserrat;
+    font-weight: normal;
+    font-size: 23px;
+    }
+    h1{
+    font-family: Oswald;
+    font-weight: bold;
+    font-size: 80px;
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .intro-container {
+      position: relative;
+      max-width: 1000px;
+    }
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    
+    .overlay {
+      position: absolute; 
+      bottom: 0; 
+      background: rgb(0, 0, 0);
+      background: rgba(0, 0, 0, 0.5); /* Black see-through */
+      color: #f1f1f1; 
+      width: 100%;
+      transition: .2s ease;
+      opacity:0;
+      color: white;
+      font-size: 20px;
+      padding: 20px;
+      text-align: left;
+    }
+    
+    .intro-container:hover .overlay{
+        opacity: 1;
+    }
+    
+    .vis{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+</style>
+
+<body class="w3-content" style="max-width:1200px">
+<div class="w3-content">
+    <!--Header-->
+    <div class ="container">
+        <div class="w3-container">
+            <h2 style="margin-left: 60px;">Sports & Medals</h2>
+            <h1 class="" style="margin-top: -30px;">OLYMPICS</h1>
+            <h3 style="margin-top: -30px; margin-left: 120px;">1896 - 2014</h3>
+        </div>
+        <div class="w3-container">
+            <img src="img/olympic-games.png" style="height:128px;width:128px;">
+        </div>
+    </div>
+    <!--End Header-->
+    
+    <!--Introduction-->
+    <div class="intro-container w3-center">
+        <img src="img/qaivruwphkutglxrvws6.jpeg" alt="Avatar" class="image">
+        <div class="overlay"> 
+            <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, 
+                eum cu recteque expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+        </div>
+    </div>
+    <p class="w3-text-grey w3-center" style ="margin-top: -2px;font-style: italic;">hover to see introduction</p>
+
+    <!-- First Chart-->
+    <div class="w3-card-4 w3-margin w3-white">
+        <div class="w3-row">
+            <div class="w3-half w3-container vis" id = "choropleth_map">
+            </div>
+            <div class="w3-half w3-container" style="text-align: right;">
+                <h2>Map</h2>
+                <p class="">
+                    description here</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <!--Second Chart-->
+    <div class="w3-card-4 w3-margin w3-white">
+        <div class="w3-row">
+            <div class="w3-half w3-container">
+                <h2>Second</h2>
+                 <p class="">
+                     description here
+                 </p>
+            </div>
+            <div class="w3-half w3-container vis" id = "sport">
+            </div> 
+        </div>
+    </div>
+
+    <!--Third Chart-->
+    <div class="w3-card-4 w3-margin w3-white">
+        <div class="w3-row">
+            <div class="w3-half w3-container vis" id = "gender">
+            </div>
+            <div class="w3-half w3-container" style="text-align: right;">
+                <h2>Third</h2>
+                <p class="">
+                    description here
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--Fourth Chart-->
+    <div class="w3-card-4 w3-margin w3-white">
+        <div class="w3-row">
+            <div class="w3-half w3-container">
+                <h2>Fourth</h2>
+                 <p class="">
+                     description here
+                 </p>
+            </div>
+            <div class="w3-half w3-container vis" id = "athlete">
+            </div> 
+        </div>
+    </div>
 
 
-</head>
-<body>
-  
-<div id="choropleth_map"></div> <br>
-<div id="gender"></div> <br>
-<div id="athlete"></div> <br>
-<div id="sport"></div>
+</div>
 
-<script type="text/javascript">
-
-  var spec2 = "js/choropleth_map.vg.json";
-  vegaEmbed('#choropleth_map', spec2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-
-  var spec3 = "js/gender.vg.json";
-  vegaEmbed('#gender', spec3).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-
-  var spec4 = "js/athlete.vg.json";
-  vegaEmbed('#athlete', spec4).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-
-  var spec5 = "js/sport.vg.json";
-  vegaEmbed('#sport', spec5).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
+<!-- Footer -->
+<div class="w3-container">
+  <p>Designed by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a> and Carla Budidharma (30031184) </p>
+  <p>Icons made by <a href="https://www.flaticon.com/authors/pongsakornred" title="pongsakornRed">pongsakornRed</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
+</div>
 
 </body>
 </html>
+
+<script type="text/javascript">
+
+    var spec2 = "js/choropleth_map.vg.json";
+    vegaEmbed('#choropleth_map', spec2, {"actions": false}).then(function(result)  {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  
+    var spec3 = "js/gender.vg.json";
+    vegaEmbed('#gender', spec3, {"actions": false}).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  
+    var spec4 = "js/athlete.vg.json";
+    vegaEmbed('#athlete', spec4, {"actions": false}).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  
+    var spec5 = "js/sport.vg.json";
+    vegaEmbed('#sport', spec5, {"actions": false}).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+  
