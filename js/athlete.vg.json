@@ -1,22 +1,202 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "height": 300,
-    "width": 300,
-    "data": {
-      "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/data/Athlete.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/data/Sport.csv"},
+
+"transform": [
+  {
+  "lookup": "Sport",
+    "from": {
+      "data": {"url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/data/Athlete.csv"},
+      "key": "Sport",
+      "fields": ["Athlete", "Medal_Count"]
+    }
+  }
+],
+  "vconcat": [
+    {
+      "width":500,
+      "mark": {"type": "bar", "cornerRadiusEnd": 4},
+      "encoding": {
+         "x": {"field": "Athlete", "type": "ordinal"},
+    "y": {"field": "Medal_Count", "type":"quantitative",
+    "axis": false},
+    "color": {
+        "condition": {"selection": "hover", "field": "Sport", "scale": {"scheme": "category20c"},"type": "nominal","title":null},
+    "value": "grey"
+      },
+       "tooltip": [
+      {"field": "Athlete", "type": "ordinal", "title": "Athlete"},
+      {"field": "Sport", "type": "ordinal", "title": "Sport"},
+      {"field": "Medal_Count", "type": "quantitative", "title": "Medal"}
+    ]
+      },
+    "layer": [
+  {
+    "selection": {
+      "hover": {
+        "type": "single",
+        "on": "mouseover",
+        "empty": "all",
+        "fields": ["Sport"],
+        "init": {"Sport": "Aquatics"}
+      }
     },
-    "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
+    "mark": {"type": "bar", "strokeWidth": 8, "stroke": "transparent"}
+  },
+  {"mark": {"type": "bar"}}
+  ]
+    },
+    {
+      "width":500,
+      "mark": "line",
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal","title": null},
+    "y": {"field": "Medal", "type": "quantitative", "title": "Total Medals"},
+    "color": {
+   "condition": {"selection": "hover", "field": "Sport", "scale": {"scheme": "category20c"},"type": "nominal","title":null},
+    "value": "grey"
+    },
+    "tooltip": [
+      {"field": "Sport", "type": "ordinal", "title": "Sport"},
+      {"field": "Year", "type": "temporal", "title": "Year","axis":{"format":"%Y"}},
+      {"field": "Medal", "type": "quantitative", "title": "Medal"}
+    ]
+  },
+ "layer": [
+  {
+    "selection": {
+      "hover": {
+        "type": "single",
+        "on": "mouseover",
+        "empty": "all",
+        "fields": ["Sport"],
+        "init": {"Sport": "Aquatics"}
+      }
+    },
+    "mark": {"type": "line", "strokeWidth": 8, "stroke": "transparent"}
+  },
+  {"mark": {"type": "line"}},
+  {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "baseline": "middle",
+      "dx": -12,
+      "fontSize": 11.5,
+      "fontStyle": "italic"
+    },
     "encoding": {
-      "x": {"field": "Athlete", "type": "ordinal"},
-      "y": {"field": "Medal_Count", "aggregate": "sum", "title": "Count"},
-      "color": {
-        "field": "Medal",
-        "scale": {"range": ["#BC937A", "#D2BEA6", "#E8E1D1"]}
+      "text": {"field": "Medal", "type": "quantitative"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum['Sport'] == 'Aquatics' && datum['Medal'] > 342",
+          "value": 1
+        },
+        "value": 0
       },
       "tooltip": [
-        {"field": "Medal_Count", "type": "quantitative", "title": "Count"},
-        {"field": "Medal", "type": "nominal", "title": "Medal"}
+       {"field": "Sport", "type": "nominal","title":"Sport"},
+       {"field": "Year", "type": "temporal","title":"Year","axis":{"format":"%Y"}},
+       {
+        "field": "Medal",
+        "type": "quantitative",
+        "title": "Total Medals"
+       }
       ]
+    }
+  },
+  {
+    "mark": {
+      "type": "circle",
+      "align": "right",
+      "baseline": "middle",
+      "dx": -12,
+      "fontSize": 10,
+      "fontStyle": "italic"
     },
-    "config": {}
+    "encoding": {
+      "text": {"field": "Medal", "type": "quantitative"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum['Sport'] == 'Aquatics' && datum['Medal'] > 342",
+          "value": 1
+        },
+        "value": 0
+      },
+      "tooltip": [
+      {"field": "Sport", "type": "nominal","title":"Sport"},
+       {"field": "Year", "type": "temporal","title":"Year","axis":{"format":"%Y"}},
+       {
+        "field": "Medal",
+        "type": "quantitative",
+        "title": "Total Medals"
+       }
+      ]
+    }
+  },
+      {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "baseline": "middle",
+      "dx": -15,
+      "fontSize": 11.5,
+      "fontStyle": "italic"
+    },
+    "encoding": {
+     "text": {"field": "Medal", "type": "quantitative"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum['Sport'] == 'Gymnastics' && datum['Medal'] > 200",
+          "value": 1
+        },
+        "value": 0
+      },
+      "tooltip": [
+      {"field": "Sport", "type": "nominal","title":"Sport"},
+       {"field": "Year", "type": "temporal","title":"Year","axis":{"format":"%Y"}},
+       {
+        "field": "Medal",
+        "type": "quantitative",
+        "title": "Total Medals"
+       }
+      ]
+    }
+  },
+  {
+    "mark": {
+      "type": "circle",
+      "align": "right",
+      "baseline": "middle",
+      "dx": -12,
+      "fontSize": 10,
+      "fontStyle": "italic"
+    },
+    "encoding": {
+     "text": {"field": "Medal", "type": "quantitative"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum['Sport'] == 'Gymnastics' && datum['Medal'] > 200",
+          "value": 1
+        },
+        "value": 0
+      },
+      "tooltip": [
+        {"field": "Sport", "type": "nominal","title":"Sport"},
+       {"field": "Year", "type": "temporal","title":"Year","axis":{"format":"%Y"}},
+       {
+        "field": "Medal",
+        "type": "quantitative",
+        "title": "Total Medals"
+       }
+      ]
+    }
   }
+]
+    }
+  ]
+}
