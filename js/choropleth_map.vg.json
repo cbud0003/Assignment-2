@@ -80,7 +80,7 @@
                     "field": "Medal",
                     "type": "quantitative",
                     "scale": {
-                        "scheme": "blues"
+                        "range": ["#9ecae1","#6baed6","#08519c","#08306b"]
                     }
                 },
                 "tooltip": [
