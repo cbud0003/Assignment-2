@@ -21,7 +21,9 @@
     "y": {"field": "Medal_Count", "type":"quantitative",
     "axis": false},
     "color": {
-        "condition": {"selection": "hover", "field": "Sport", "scale": {"scheme": "category20c"},"type": "nominal","title":null},
+        "condition": {"selection": "hover", "field": "Sport", "scale": {"range": ["#000000","#004949","#009292","#ff6db6","#ffb6db",
+ "#490092","#006ddb","#b66dff","#6db6ff","#b6dbff",
+ "#920000","#924900","#db6d00","#24ff24","#ffff6d"]},"type": "nominal","title":null},
     "value": "grey"
       },
        "tooltip": [
@@ -53,7 +55,9 @@
     "x": {"field": "Year", "type": "temporal","title": null},
     "y": {"field": "Medal", "type": "quantitative", "title": "Total Medals"},
     "color": {
-   "condition": {"selection": "hover", "field": "Sport", "scale": {"scheme": "category20c"},"type": "nominal","title":null},
+   "condition": {"selection": "hover", "field": "Sport", "scale": {"range": ["#000000","#004949","#009292","#ff6db6","#ffb6db",
+ "#490092","#006ddb","#b66dff","#6db6ff","#b6dbff",
+ "#920000","#924900","#db6d00","#24ff24","#ffff6d"]},"type": "nominal","title":null},
     "value": "grey"
     },
     "tooltip": [
