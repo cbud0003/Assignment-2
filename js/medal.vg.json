@@ -78,7 +78,7 @@
   "encoding": {
     "y": {"aggregate": "sum", "field": "Medal_Count", "title": "Number of Medals"},
     "x": {"field": "Medal", "title":null},
-    "color": {"field": "Medal", "scale": {"scheme": "category20c"}},
+    "color": {"field": "Medal", "scale": {"range":["#6db6ff","#b6dbff","#006ddb"]}},
     "tooltip": [
       {"aggregate": "sum", "field": "Medal_Count", "type": "quantitative", "title": "Total"}
     ]
