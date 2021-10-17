@@ -16,7 +16,7 @@
     }
     h3, p{
     font-family: Montserrat;
-    font-weight: light;
+    font-weight: lighter;
     font-size: 15px;
     }
     h2{
@@ -68,6 +68,10 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
+    .map{
+        margin-left: -10px;
+        text-align: center;
+    }
 </style>
 
 <body class="w3-content" style="max-width:1200px">
@@ -77,7 +81,7 @@
         <div class="w3-container">
             <h2 style="margin-left: 60px;">Sports & Medals</h2>
             <h1 class="" style="margin-top: -30px;">OLYMPICS</h1>
-            <h3 style="margin-top: -30px; margin-left: 120px;">1896 - 2014</h3>
+            <h3 style="margin-top: -30px; margin-left: 120px;">1896 - 2012</h3>
         </div>
         <div class="w3-container">
             <img src="img/olympic-games.png" style="height:128px;width:128px;">
@@ -89,64 +93,114 @@
     <div class="intro-container w3-center">
         <img src="img/qaivruwphkutglxrvws6.jpeg" alt="Avatar" class="image">
         <div class="overlay"> 
-            <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, 
-                eum cu recteque expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+            <p> The Olympic Games are an international sporting event, held every four years. The ultimate aims are to nurture human beings and contribute to world peace via sport. 
+                Summer and winter games are held at separate times. (About The Olympic Games, n.d.)
+                The first Olympic Games was first held in Athens, Greece in 1986, where athletes consist of all males (Athens 1896 Olympic Games, n.d.). 
+                Female competed for the first time at the 1900 Games that was held in Paris (When Did Women First Compete in the Olympic Games, 2021).
+                In research from The Guardian (2017), more than 35,000 medals have been awarded at the Olympics since 1896. 
+                This visualization aims to explore more about which athletes have won the most medals and which country do they came from and 
+                how has it changed over time. <br>
+                <p style="font-size: 10px;">img source: <a href ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf9Ph6CUXnOfyMDIxTC6CaP2sAkPN4xpBi6MrkwnTVG0IxBbW_7hvcFbZwWEZzPPAaw9s&usqp=CAU">https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf9Ph6CUXnOfyMDIxTC6CaP2sAkPN4xpBi6MrkwnTVG0IxBbW_7hvcFbZwWEZzPPAaw9s&usqp=CAU</a></p>
+            </p>
         </div>
     </div>
     <p class="w3-text-grey w3-center" style ="margin-top: -2px;font-style: italic;">hover to see introduction</p>
 
     <!-- First Chart-->
-    <div class="w3-card-4 w3-margin w3-white">
-        <div class="w3-row">
-            <div class="w3-half w3-container vis" id = "choropleth_map">
-            </div>
-            <div class="w3-half w3-container" style="text-align: right;">
-                <h2>Map</h2>
-                <p class="">
-                    description here</p>
-            </div>
-        </div>
+    <div class="w3-container vis map" id = "choropleth_map">
     </div>
-
-    
+    <p class="w3-text-grey w3-center" style="font-style: italic;text-align: left;font-size: 12px;margin-top: -5px;">
+        to view medals won for each country clearly, hover over the map, or 
+        use the zoom slider and select the map center</p>
+    <div style="text-align: center;width: 800px;margin-left: 90px;padding-bottom: 15px;padding-top: 5px;">
+    <h2>Medals won across the World (1984 - 2012)</h2>
+    <p class="">
+        At first sight, the darker region surrounding the <b>United States</b> indicates that it has won the most medals over the years 
+        - a total of <b>4,585</b> medals. 
+        Following the next most noticeable darker regions are, <b>Australia, Russia and China,</b> with a total wins of <b>
+            1,189 , 768,</b> and <b>807</b> medals, respectively. Some notable mentions of countries with many medals won include, 
+            <b>Canada (649)</b>, <b>France (1,395)</b>, and <b>Sweden (1,044)</b>. 
+    </p></div>
+    <br>
     <!--Second Chart-->
     <div class="w3-card-4 w3-margin w3-white">
         <div class="w3-row">
             <div class="w3-half w3-container">
-                <h2>Second</h2>
+                <h2>Athletes and Sports <br> (accumulated)</h2>
                  <p class="">
-                     description here
+                     The first graph represents the top <br>
+                     athletes from a selection of the <br>
+                     Olympic sports. Most recognizable <br>
+                     athlete is <b>Aquatic</b> olympian, <br>
+                     <b>Michael Phelps</b> with the highest<br>
+                     number of medals won (22). <br>
+                     Following the next olympian with <br>
+                     most medals won is <b>gymnast</b>, <b> Larisa <br>
+                    Latynina</b> - a total of 18 medals.<br>
+                    <br><br>
+                    The second graph represents the <br>
+                    total number of medals won for <br>
+                    every sports, throughout the years. <br>
+                    <b>Aquatic</b>sports is easily recognized <br>
+                    as the sport with most medals won <br>
+                    with <b>347</b> medals as the highest <br>
+                    ever recorded in 2008. The sport <br>
+                    recorded with the second highest<br>
+                    number of medals is Gymnastics <br> 
+                    (202) in 1920. Other sports that are <br>
+                    still noticable in the 2000s are, <br>
+                    <b>Athletics</b> and <b>Rowing</b>.
+
                  </p>
             </div>
-            <div class="w3-half w3-container vis" id = "sport">
+            <p class="w3-text-grey" style="font-style: italic;font-size: 12px;">
+                to view medals won for each sport clearly, hover over the graphs</p>
+            <div class="w3-half w3-container vis" id = "athlete" style="margin-left: -200px;margin-top: -20px;">
             </div> 
         </div>
     </div>
-
+    <br>
     <!--Third Chart-->
     <div class="w3-card-4 w3-margin w3-white">
         <div class="w3-row">
             <div class="w3-half w3-container vis" id = "gender">
+                
             </div>
             <div class="w3-half w3-container" style="text-align: right;">
-                <h2>Third</h2>
+                <h2>Men vs Women</h2>
                 <p class="">
-                    description here
+                   At first glance, the participants have largely been men over the years. The first ever female particpants 
+                   recorded was in <b>1900</b> with a total of <b>11</b> participants, the number gradually increases over the years. Meanwhile,
+                   the male participants can be seen consistent over the years, with <b>1,255</b> participants as the highest ever recorded 
+                   in <b>1920</b> and lowest was in 1896 - only <b>151</b> in total.
+                   As for the female, the highest recorded number of participants is <b>932</b> in <b>2008</b>. <br>
+                   A trend that can be seen in this graph is that <b>male participants are consistently higher than female participants</b>,
+                   eventhough there has been an increase in female participants since 1900, the male participants are seemingly always higher and
+                   never once recorded lower than the female participants.  
                 </p>
             </div>
         </div>
+        <p class="w3-text-grey" style="font-style: italic;font-size: 12px;margin-left: 10px;padding-bottom: 10px;">
+            to view exact number of participants in each year, hover over the graph</p>
     </div>
-
+    <br>
     <!--Fourth Chart-->
     <div class="w3-card-4 w3-margin w3-white">
         <div class="w3-row">
             <div class="w3-half w3-container">
-                <h2>Fourth</h2>
+                <h2>Bronze vs Silver vs Gold </h2>
                  <p class="">
-                     description here
+                     Naturally, as the number of participants increase, so does the number of medals. 
+                     It started with only <b>151</b> medals in <b>1896</b> to a total of <b>1,949</b> medals in <b>2012</b>. 
+                     There are no particular trends in which medal type is awarded most as it keeps on changing every year. For example, 
+                     in year <b>1928</b>, <b>Bronze</b> is the highest medal type awarded but in <b>1932</b>, the highest is <b>Gold</b>.
+                     However,the accumulated number of medals from year 1896 - 2012 is <b>31,165</b>, with <b>Gold</b> as the leading medal type 
+                     - a total number of <b>10,486 </b>, followed by <b>Bronze (10,369)</b> and <b>Silver (10,310)</b>. 
                  </p>
             </div>
-            <div class="w3-half w3-container vis" id = "athlete">
+            <p class="w3-text-grey" style="font-style: italic;font-size: 12px;">
+                to view number of medals won for each medal type, select the year and hover over the graph</p>
+            <div class="w3-half w3-container vis" id = "medal" style="margin-left: 10;margin-top: -10px;">
             </div> 
         </div>
     </div>
@@ -180,8 +234,8 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   
-    var spec5 = "js/sport.vg.json";
-    vegaEmbed('#sport', spec5, {"actions": false}).then(function(result) {
+    var spec5 = "js/medal.vg.json";
+    vegaEmbed('#medal', spec5, {"actions": false}).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>

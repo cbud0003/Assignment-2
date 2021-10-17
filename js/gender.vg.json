@@ -20,13 +20,13 @@
           "x": {
             "aggregate": "sum",
             "field": "Gender_Count",
-            "title": "Participation",
+            "title": "Participants",
             "axis": {"format": "s"},
             "sort": "descending"
           },
           "color": {
             "field": "Gender",
-            "scale": {"range": ["#902923", "#A6624F"]},
+            "scale": {"scheme": "category20c"},
             "legend": null
           },
           "tooltip": [
@@ -64,7 +64,7 @@
           "x": {
             "aggregate": "sum",
             "field": "Gender_Count",
-            "title": "Participation",
+            "title": "Participants",
             "axis": {"format": "s"}
           },
           "color": {"field": "Gender", "legend": null},

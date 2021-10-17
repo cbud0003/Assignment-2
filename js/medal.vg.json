@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": { "url": "https://raw.githubusercontent.com/cbud0003/FIT3179/main/data/Medal_Type.csv"},
+ "params": [
+  {
+    "name": "Year_selection",
+    "bind": {
+      "input": "select",
+      "options": [
+        null,
+        "1896",
+        "1900",
+        "1904",
+        "1908",
+        "1912",
+        "1920",
+        "1924",
+        "1928",
+        "1932",
+        "1936",
+        "1948",
+        "1952",
+        "1956",
+        "1960",
+        "1964",
+        "1968",
+        "1972",
+        "1976",
+        "1980",
+        "1984",
+        "1988",
+        "1992",
+        "1996",
+        "2000",
+        "2004",
+        "2008",
+        "2012"
+      ],
+      "labels": [
+        "Show All",
+        "1896",
+        "1900",
+        "1904",
+        "1908",
+        "1912",
+        "1920",
+        "1924",
+        "1928",
+        "1932",
+        "1936",
+        "1948",
+        "1952",
+        "1956",
+        "1960",
+        "1964",
+        "1968",
+        "1972",
+        "1976",
+        "1980",
+        "1984",
+        "1988",
+        "1992",
+        "1996",
+        "2000",
+        "2004",
+        "2008",
+        "2012"
+      ],
+      "name": "Year Selection:"
+    }
+  }
+],
+"transform": [
+  {"filter": "Year_selection == null || datum.Year == Year_selection"}
+],
+  "width": 150,
+  "mark": "bar",
+  "encoding": {
+    "y": {"aggregate": "sum", "field": "Medal_Count", "title": "Number of Medals"},
+    "x": {"field": "Medal", "title":null},
+    "color": {"field": "Medal", "scale": {"scheme": "category20c"}},
+    "tooltip": [
+      {"aggregate": "sum", "field": "Medal_Count", "type": "quantitative", "title": "Total"}
+    ]
+  },
+  "config": {"view": {"stroke": null}, "axis": {"grid": false}}
+}
