@@ -145,7 +145,7 @@
       "type": "text",
       "align": "right",
       "baseline": "middle",
-      "dx": -15,
+      "dx": 25,
       "fontSize": 11.5,
       "fontStyle": "italic"
     },
